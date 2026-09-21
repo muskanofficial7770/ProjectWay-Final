@@ -1,0 +1,23 @@
+/* Import all separate CSS files */
+
+/* Main App Layout and Sidebar */
+@import './styles/app.css';
+
+/* Dashboard Page */
+@import './styles/dashboard.css';
+
+/* Feedback Page */
+@import './styles/feedback.css';
+
+/* Help Page */
+@import './styles/help.css';
+
+/* Assign Task Page */
+@import './styles/assign-task.css';
+
+
+/* Progress Tracking Page */
+@import './styles/progress-tracking.css';
+
+/* Submit Idea Page */
+@import './styles/submit-idea.css';
