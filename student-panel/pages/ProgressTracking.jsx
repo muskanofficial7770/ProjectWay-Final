@@ -277,7 +277,7 @@ const ProgressTracking = ({
               <span className="pt-summary-label">Leader</span>
               <span className="pt-summary-value">{leaderName}</span>
             </div>
-            <div className="pt-summary-row pt-summary-row-stack">
+            <div className="pt-summary-row ">
               <span className="pt-summary-label">Members</span>
               <span className="pt-summary-value">
                 {members.length > 0 ? members.join(", ") : "None added"}
@@ -444,7 +444,7 @@ const ProgressTracking = ({
                   assignment
                 </span>
                 <p>No tasks assigned yet.</p>
-                <p className="pt-empty-sub">Go to &quot;Assign Task&quot; to start.</p>
+                <p className="pt-empty-sub">Go to "Assign Task" to start.</p>
               </div>
             ) : (
               <div className="pt-table-wrapper">
