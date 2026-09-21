@@ -243,7 +243,7 @@ const Dashboard = ({ userName }) => {
                     {file.announcement && file.announcement !== 'No announcement' && (
                       <p className="df-announcement">{file.announcement}</p>
                     )}
-                    <div style={{ display: 'flex', gap: '1rem', fontSize: '0.8rem', color: '#64748b' }}>
+                    <div className="df-meta"> 
                       <span>{file.size}</span>
                       <span>•</span>
                       <span>{formatTimestamp(file.uploadDate)}</span>

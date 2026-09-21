@@ -378,6 +378,13 @@
   white-space: normal;
 }
 
+.df-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
 
 .d-view-btn {
   display: inline-flex;
