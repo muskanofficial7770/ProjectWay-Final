@@ -84,7 +84,7 @@ const AssignTask = ({ onAddTask, leaderName, members, leaderPassword, groupId })
                 />
               </div>
               {gateError ? (
-                <p className="at-gate-error" role="alert">
+                <p className="at-gate-error" >
                   {gateError}
                 </p>
               ) : null}
@@ -125,8 +125,6 @@ const AssignTask = ({ onAddTask, leaderName, members, leaderPassword, groupId })
       assignedTo: newTaskAssignee,
       deadline: newTaskDate || "TBD",
       status: "Pending",
-      initials: newTaskAssignee.charAt(0).toUpperCase(),
-      colorClass: "bg-slate-200 text-slate-700",
       groupId,
     };
 

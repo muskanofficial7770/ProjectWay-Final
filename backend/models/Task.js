@@ -23,14 +23,6 @@ const taskSchema = new mongoose.Schema({
     enum: ['Pending', 'Completed'],
     default: 'Pending'
   },
-  initials: {
-    type: String,
-    required: true
-  },
-  colorClass: {
-    type: String,
-    default: 'bg-slate-200 text-slate-700'
-  },
   projectName: {
     type: String,
     required: true

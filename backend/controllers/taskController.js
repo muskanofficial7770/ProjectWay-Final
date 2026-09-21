@@ -15,8 +15,6 @@ export const createTask = async (req, res) => {
       assignedTo,
       deadline: deadline || 'TBD',
       status: 'Pending',
-      initials: assignedTo.charAt(0).toUpperCase(),
-      colorClass: 'bg-slate-200 text-slate-700',
       projectName,
       leaderName,
       groupId
