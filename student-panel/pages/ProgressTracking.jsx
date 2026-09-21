@@ -8,7 +8,6 @@ const ProgressTracking = ({
   onToggleTask,
   projectName,
   groupId,
-  onSaveProject,
   onSaveTeam,
   isGroupProfileSaved,
   currentUser,
@@ -20,13 +19,6 @@ const ProgressTracking = ({
   const [pendingMembers, setPendingMembers] = useState([]);
   const [groupData, setGroupData] = useState(null);
 
-  useEffect(() => {
-    if (!projectName) {
-      setDraftProjectName("");
-    } else {
-      setDraftProjectName(projectName);
-    }
-  }, [projectName]);
 
   // Load group data when groupId is available
   useEffect(() => {
@@ -46,15 +38,6 @@ const ProgressTracking = ({
     loadGroupData();
   }, [groupId]);
 
-  const handleSaveProjectClick = () => {
-    const trimmed = draftProjectName.trim();
-    if (!trimmed) return;
-    setLeaderDraft("");
-    setPasswordDraft("");
-    setPendingMembers([]);
-    setNewMemberName("");
-    onSaveProject(trimmed);
-  };
 
   const handleAddMemberClick = () => {
     const name = newMemberName.trim();
@@ -203,8 +186,6 @@ const ProgressTracking = ({
       }
     }
 
-    // Save project name first, then save team
-    await onSaveProject(trimmedProjectName);
     await onSaveTeam(leader, pendingMembers, passwordDraft.trim(), trimmedProjectName);
   };
 

@@ -83,34 +83,6 @@ function App({ userName, onLogout }) {
     return currentPath === `/students${path}` || currentPath === path;
   };
 
-  const saveProjectName = async (name) => {
-    const trimmed = name.trim();
-    if (!trimmed) return;
-    setProjectName(trimmed);
-    setLeaderName("");
-    setMembers([]);
-    setGroupId("");
-    setLeaderPassword("");
-    setIsGroupProfileSaved(false);
-
-    const sharedGroupData = localStorage.getItem(`studentGroupData_${trimmed}`);
-    if (sharedGroupData) {
-      try {
-        const parsed = JSON.parse(sharedGroupData);
-        if (parsed.leaderName) setLeaderName(parsed.leaderName);
-        if (Array.isArray(parsed.members)) setMembers(parsed.members);
-        if (parsed.groupId) setGroupId(parsed.groupId);
-        if (parsed.leaderPassword) setLeaderPassword(parsed.leaderPassword);
-        setIsGroupProfileSaved(Boolean(parsed.leaderName && parsed.leaderPassword));
-      } catch (error) {
-        console.error('Error loading shared group data:', error);
-      }
-    }
-
-    const progressData = { projectName: trimmed };
-    localStorage.setItem(`studentProgressData_${userName}`, JSON.stringify(progressData));
-    localStorage.setItem(`studentGroupData_${trimmed}`, JSON.stringify(progressData));
-  };
 
   const saveGroupTeam = async (leader, memberList, password, projectNameParam) => {
     // Get the user's groupId first
@@ -125,21 +97,14 @@ function App({ userName, onLogout }) {
       members: memberList
     });
 
-    if (result.success) {
+       if (result.success) {
+      const finalProjectName = (projectNameParam || projectName).trim();
+      setProjectName(finalProjectName);   
       setLeaderName(leader.trim());
       setMembers(memberList);
       setGroupId(userGroupId);
       setLeaderPassword(password);
       setIsGroupProfileSaved(true);
-      const groupData = {
-        groupId: userGroupId,
-        projectName,
-        leaderName: leader.trim(),
-        members: memberList,
-        leaderPassword: password
-      };
-      localStorage.setItem(`studentProgressData_${userName}`, JSON.stringify(groupData));
-      localStorage.setItem(`studentGroupData_${projectName}`, JSON.stringify(groupData));
     } else {
       alert(result.message || 'Error saving team');
     }
@@ -229,7 +194,6 @@ function App({ userName, onLogout }) {
     onToggleTask: handleToggleTask,
     projectName,
     groupId,
-    onSaveProject: saveProjectName,
     onSaveTeam: saveGroupTeam,
     isGroupProfileSaved,
     currentUser: userName,
