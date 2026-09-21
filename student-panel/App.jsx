@@ -212,8 +212,6 @@ function App({ userName, onLogout }) {
   };
 
   const feedbackProps = {
-    projectName,
-    leaderName,
     userName,
   };
 

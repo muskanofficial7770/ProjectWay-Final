@@ -154,6 +154,16 @@
   white-space: normal; 
 }
 
+.fd-reply {
+  margin-top: 10px;
+  background-color: #f0f9ff;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-wrap: break-word;   
+  word-break: break-word;      
+  white-space: normal; 
+}
+
 .fd-timestamp {
   font-size: 0.75rem;
   color: #9ca3af;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getAllFeedback, getStudentIssues, getUserGroupId, markFeedbackAsRead, markIssueAsRead } from '../api/studentPanelApi';
 
-const Feedback = ({ projectName, leaderName, userName }) => {
+const Feedback = ({ userName }) => {
   const [feedbacks, setFeedbacks] = useState([]);
   const [issues, setIssues] = useState([]);
   const [groupId, setGroupId] = useState('');
@@ -10,11 +10,11 @@ const Feedback = ({ projectName, leaderName, userName }) => {
   useEffect(() => {
     // Get groupId for the current user
     const loadGroupId = async () => {
-      const groupData = await getUserGroupId(userName || leaderName);
+      const groupData = await getUserGroupId(userName);
       setGroupId(groupData?.groupId || '');
     };
     loadGroupId();
-  }, [userName, leaderName]);
+  }, [userName]);
 
   useEffect(() => {
     // Clear localStorage for this user on mount to prevent showing old data
@@ -186,7 +186,7 @@ const Feedback = ({ projectName, leaderName, userName }) => {
                   <div className="fd-message">
                     <strong>Issue by {issue.studentName}:</strong> {issue.description}
                   </div>
-                  <div className="fd-message" style={{ marginTop: '10px', backgroundColor: '#f0f9ff', padding: '10px', borderRadius: '5px' }}>
+                  <div className="fd-reply">
                     <strong>Teacher Reply:</strong> {issue.teacherReply}
                   </div>
                   <div className="fd-timestamp">{formatTimestamp(issue.timestamp)}</div>
