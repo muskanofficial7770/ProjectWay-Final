@@ -14,7 +14,7 @@ const AssignTask = ({ onAddTask, leaderName, members, leaderPassword, groupId })
     setGateError("");
   }, [leaderName, leaderPassword]);
 
-  if (!leaderName) {
+  if (!leaderName || !leaderPassword) {
     return (
       <div className="at-access-wrapper">
         <div className="at-access-icon">
@@ -31,23 +31,6 @@ const AssignTask = ({ onAddTask, leaderName, members, leaderPassword, groupId })
     );
   }
 
-  if (!leaderPassword) {
-    return (
-      <div className="at-access-wrapper">
-        <div className="at-access-icon">
-          <span className="material-symbols-outlined at-access-lock">
-            lock
-          </span>
-        </div>
-        <h2 className="at-access-title">Set a leader password</h2>
-        <p className="at-access-text">
-          Go to <strong>Progress Tracking</strong> and use{" "}
-          <strong>Save team</strong> so your leader password is stored. Then
-          return here and enter that password to assign tasks.
-        </p>
-      </div>
-    );
-  }
 
   const handleUnlockAssign = () => {
     if (gatePassword !== leaderPassword) {
