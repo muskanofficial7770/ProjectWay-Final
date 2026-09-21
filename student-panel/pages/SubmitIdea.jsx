@@ -300,7 +300,7 @@ const SubmitIdea = ({ userName = '' }) => {
       )}
 
       {registrationError && (
-        <div className="error-message" style={{ marginBottom: '16px', padding: '12px', backgroundColor: '#fee2e2', border: '1px solid #ef4444', borderRadius: '4px', color: '#dc2626' }}>
+        <div className="error-message si-registration-error">
           {registrationError}
         </div>
       )}
@@ -399,7 +399,6 @@ const SubmitIdea = ({ userName = '' }) => {
                 ))}
                 {members.length < 3 && (
                   <input
-                    className="border-none focus:ring-0 p-1 text-sm bg-transparent flex-1 min-w-[140px] text-slate-900 dark:text-white"
                     placeholder="Type name & press Enter..."
                     type="text"
                     value={memberInput}

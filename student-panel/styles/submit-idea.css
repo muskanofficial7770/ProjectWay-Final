@@ -306,6 +306,16 @@
   color: #22c55e;
 }
 
+.si-registration-error {
+  margin-bottom: 16px;
+  padding: 12px;
+  background-color: #fee2e2;
+  border: 1px solid #fca5a5;
+  border-radius: 4px;
+  color: #b91c1c;
+}
+
+
 @keyframes si-slide-in {
   from {
     opacity: 0;
