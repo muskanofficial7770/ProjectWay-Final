@@ -17,7 +17,6 @@ import authRoutes from "./routes/authRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
 import { seedAdminUser } from "./models/User.js";
 import { seedRoles } from "./models/Role.js";
-import { migrateFeedbackGroupId } from "./controllers/feedbackController.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 
 console.log("🚀 Server.js file started (ESM)...");
@@ -113,9 +112,6 @@ mongoose
     await seedAdminUser();
     await seedRoles();
 
-    // Run migration to add groupId to existing feedback records
-    console.log("\n🔄 Running feedback migration...");
-    await migrateFeedbackGroupId();
 
     // Start server after successful DB connection
     const server = app.listen(PORT, () => {
