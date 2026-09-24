@@ -54,10 +54,6 @@
   min-height: 0;
 }
 
-.app-content-spacer {
-  height: 4rem;
-}
-
 /* Mobile responsive */
 @media (min-width: 1024px) {
   .app-mobile-header {

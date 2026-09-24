@@ -148,7 +148,6 @@ const AssignTask = ({ onAddTask, leaderName, members, leaderPassword, groupId })
       </div>
 
       <div className="at-card">
-        <div className="at-card-border" />
         <div className="at-card-header">
           <h2 className="at-card-header-title">
             <span className="material-symbols-outlined at-card-header-icon">

@@ -257,7 +257,6 @@ function App({ userName, onLogout }) {
               <Route path="/diagram-editor" element={canCreateDiagram ? <DiagramEditor userName={userName} /> : <Dashboard {...dashboardProps} />} />
               <Route path="*" element={<Dashboard {...dashboardProps} />} />
             </Routes>
-            <div className="app-content-spacer" />
           </div>
         </main>
       </div>

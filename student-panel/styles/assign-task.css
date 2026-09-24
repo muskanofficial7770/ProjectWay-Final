@@ -97,19 +97,11 @@
   position: relative;
   background-color: #ffffff;
   border-radius: 0.75rem;
-  border: 1px solid rgba(37, 99, 235, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
   overflow: hidden;
 }
 
-.at-card-border {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0.25rem;
-  height: 100%;
-  background-color: #2563eb;
-}
 
 .at-card-header {
   padding: 1rem 1.5rem;
@@ -278,7 +270,11 @@
 .at-footer {
   grid-column: 1 / -1;
   padding-top: 1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   margin-top: 0.5rem;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
   border-top: 1px solid #e5e7eb;
 }
 

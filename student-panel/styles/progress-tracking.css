@@ -289,7 +289,9 @@
 .pt-td-small {
   width: 2.5rem;
 }
-
+.pt-table-body .pt-tr:last-child .pt-td {
+  border-bottom: none;
+}
 /* Done button */
 
 .pt-done-btn {
