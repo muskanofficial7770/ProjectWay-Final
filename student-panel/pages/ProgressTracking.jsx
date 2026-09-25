@@ -132,21 +132,12 @@ const ProgressTracking = ({
       }
     }
 
-    // Check if current user is the registered group leader
-    // If group is already saved, check against the saved leader
-    if (isGroupProfileSaved && leaderName) {
-      if (currentUser !== leaderName) {
-        alert("Only the group leader can save the team. Members cannot save the team.");
-        return;
-      }
-    } else {
-      // If group is not saved yet, check if the entered leader name matches current user
       // Only the person who is registering as leader can save
       if (currentUser !== leader) {
         alert("Only the group leader can save the team. Members cannot save the team.");
         return;
       }
-    }
+    
 
     // Check if the project name is valid for this group
     if (groupId) {
@@ -257,7 +248,7 @@ const ProgressTracking = ({
   });
 
   const renderGroupBlock = () => {
-    if (isGroupProfileSaved && projectName) {
+    if (isGroupProfileSaved ) {
       return (
         <div className="pt-card">
           <div className="pt-card-header pt-card-header-muted">

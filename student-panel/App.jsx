@@ -163,11 +163,8 @@ function App({ userName, onLogout }) {
           setMembers(teamResult.team.members || []);
           setGroupId(userGroupId);
           setLeaderPassword(teamResult.team.leaderPassword);
+          setProjectName(teamResult.team.projectName);
           setIsGroupProfileSaved(true);
-          // Only set projectName if it exists in the team data
-          if (teamResult.team.projectName) {
-            setProjectName(teamResult.team.projectName);
-          }
         }
 
         // Load tasks from API using groupId
