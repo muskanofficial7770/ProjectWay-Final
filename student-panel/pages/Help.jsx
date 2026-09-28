@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { getUserGroupId, submitIssue } from '../api/studentPanelApi';
+import '../styles/help.css';
 
 const Help = ({ userName, projectName }) => {
   const [issueType, setIssueType] = useState('');

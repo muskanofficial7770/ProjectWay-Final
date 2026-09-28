@@ -10,14 +10,6 @@ import Help from "./pages/Help";
 import DiagramEditor from "./pages/DiagramEditor";
 import { saveTeam, getTeamByGroupId, createTask, getTasksByGroupId, toggleTaskStatus, getUserGroupId, getRoles } from "./api/studentPanelApi";
 import "./styles/app.css";
-import "./styles/dashboard.css";
-import "./styles/submit-idea.css";
-import "./styles/feedback.css";
-import "./styles/progress-tracking.css";
-import "./styles/assign-task.css";
-import "./styles/help.css";
-import "./styles/diagram-editor-main.css";
-import "./styles/FileViewer.css";
 
 function App({ userName, onLogout }) {
   const location = useLocation();

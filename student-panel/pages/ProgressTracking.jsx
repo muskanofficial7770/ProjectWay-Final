@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { updateStudentProgress, getIdeasByGroupId, getGroupByGroupId, getAllIdeas } from "../api/studentPanelApi";
+import "../styles/progress-tracking.css";
 
 const ProgressTracking = ({
   tasks,

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getAllFeedback, getStudentIssues, getUserGroupId, markFeedbackAsRead, markIssueAsRead } from '../api/studentPanelApi';
+import '../styles/feedback.css';
 
 const Feedback = ({ userName }) => {
   const [feedbacks, setFeedbacks] = useState([]);

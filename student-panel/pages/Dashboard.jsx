@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getAllUploads, getIdeaStatsByGroup, getUserGroupId } from '../api/studentPanelApi';
 import { notificationApi } from '../api/NotificationApi';
+import '../styles/dashboard.css';
 
 const Dashboard = ({ userName }) => {
   const [uploadedFiles, setUploadedFiles] = useState([]);

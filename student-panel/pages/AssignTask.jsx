@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../styles/assign-task.css";
 
 const AssignTask = ({ onAddTask, leaderName, members, leaderPassword, groupId }) => {
   const [newTaskName, setNewTaskName] = useState("");

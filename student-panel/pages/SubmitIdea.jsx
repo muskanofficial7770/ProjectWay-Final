@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { submitIdea, checkUser, getUserSession, getUserGroupId, getFirstIdeaByGroup } from '../api/studentPanelApi';
+import '../styles/submit-idea.css';
 
 const SubmitIdea = ({ userName = '' }) => {
   const [projectName, setProjectName] = useState('');
