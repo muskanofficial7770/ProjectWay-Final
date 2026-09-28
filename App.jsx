@@ -8,9 +8,29 @@ import TeacherPanel from './teacher-panel/App.jsx';
 import Login from './login/Login.jsx';
 
 function AppContent() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [userRole, setUserRole] = useState(null);
-  const [userName, setUserName] = useState(null);
+  const getStoredSession = () => {
+    try {
+      const savedSession = JSON.parse(localStorage.getItem('projectWaySession') || '{}');
+      const hasToken = Boolean(localStorage.getItem('authToken'));
+
+      if (!hasToken && !savedSession.isAuthenticated) {
+        return { isAuthenticated: false, userRole: null, userName: null };
+      }
+
+      return {
+        isAuthenticated: Boolean(savedSession.isAuthenticated || hasToken),
+        userRole: savedSession.userRole || null,
+        userName: savedSession.userName || null,
+      };
+    } catch (error) {
+      return { isAuthenticated: false, userRole: null, userName: null };
+    }
+  };
+
+  const storedSession = getStoredSession();
+  const [isAuthenticated, setIsAuthenticated] = useState(storedSession.isAuthenticated);
+  const [userRole, setUserRole] = useState(storedSession.userRole);
+  const [userName, setUserName] = useState(storedSession.userName);
   const navigate = useNavigate();
 
   const handleLogin = async (loginData) => {
@@ -40,6 +60,14 @@ function AppContent() {
         console.log('Login response data:', data);
         console.log('Extracted user name:', name);
         setUserName(name);
+        localStorage.setItem(
+          'projectWaySession',
+          JSON.stringify({
+            isAuthenticated: true,
+            userRole: loginData.role,
+            userName: name,
+          })
+        );
 
         // Redirect directly to the appropriate panel based on role
         if (loginData.role === 'student') {
@@ -66,6 +94,7 @@ function AppContent() {
     setUserRole(null);
     setUserName(null);
     localStorage.removeItem('authToken');
+    localStorage.removeItem('projectWaySession');
     navigate('/');
   };
 
