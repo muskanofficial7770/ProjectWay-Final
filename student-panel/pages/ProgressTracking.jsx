@@ -301,7 +301,6 @@ const ProgressTracking = ({
                 type="text"
                 value={draftProjectName}
                 onChange={handleProjectNameChange}
-                onKeyDown={(e) => e.key === "Enter" && handleSaveTeamClick()}
                 placeholder="Enter your project name…"
                 className="pt-input"
                 maxLength={50}
